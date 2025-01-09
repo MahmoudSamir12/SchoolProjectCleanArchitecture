@@ -1,0 +1,138 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolProject.Data\SchoolProject.Data.csproj" />
+    <ProjectReference Include="..\SchoolProject.Infrastructure\SchoolProject.Infrastructure.csproj" />
+    <ProjectReference Include="..\SchoolProject.Service\SchoolProject.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Assessment\Commands\Handlers\" />
+    <Folder Include="Features\Assessment\Commands\Models\" />
+    <Folder Include="Features\Assessment\Commands\Validations\" />
+    <Folder Include="Features\Assessment\Queries\Models\" />
+    <Folder Include="Features\Assessment\Queries\Handlers\" />
+    <Folder Include="Features\Attendance\Commands\Handlers\" />
+    <Folder Include="Features\Attendance\Commands\Models\" />
+    <Folder Include="Features\Attendance\Commands\Validations\" />
+    <Folder Include="Features\Attendance\Queries\Handlers\" />
+    <Folder Include="Features\Attendance\Queries\Models\" />
+    <Folder Include="Features\Classroom\Commands\Handlers\" />
+    <Folder Include="Features\Classroom\Commands\Models\" />
+    <Folder Include="Features\Classroom\Commands\Validations\" />
+    <Folder Include="Features\Classroom\Queries\Handlers\" />
+    <Folder Include="Features\Classroom\Queries\Models\" />
+    <Folder Include="Features\DepartmentSubject\Commands\DTOs\" />
+    <Folder Include="Features\DepartmentSubject\Commands\Handlers\" />
+    <Folder Include="Features\DepartmentSubject\Commands\Models\" />
+    <Folder Include="Features\DepartmentSubject\Commands\Validations\" />
+    <Folder Include="Features\DepartmentSubject\Queries\DTOs\" />
+    <Folder Include="Features\DepartmentSubject\Queries\Handlers\" />
+    <Folder Include="Features\DepartmentSubject\Queries\Models\" />
+    <Folder Include="Features\Department\Commands\Handlers\" />
+    <Folder Include="Features\Department\Commands\Models\" />
+    <Folder Include="Features\Department\Commands\Validations\" />
+    <Folder Include="Features\Enrollment\Commands\Handlers\" />
+    <Folder Include="Features\Enrollment\Commands\Models\" />
+    <Folder Include="Features\Enrollment\Commands\Validations\" />
+    <Folder Include="Features\Enrollment\Queries\Handlers\" />
+    <Folder Include="Features\Enrollment\Queries\Models\" />
+    <Folder Include="Features\ExtraCurricularActivity\Commands\Handlers\" />
+    <Folder Include="Features\ExtraCurricularActivity\Commands\Models\" />
+    <Folder Include="Features\ExtraCurricularActivity\Commands\Validations\" />
+    <Folder Include="Features\ExtraCurricularActivity\Queries\Handlers\" />
+    <Folder Include="Features\ExtraCurricularActivity\Queries\Models\" />
+    <Folder Include="Features\Grade\Commands\Handlers\" />
+    <Folder Include="Features\Grade\Commands\Models\" />
+    <Folder Include="Features\Grade\Commands\Validations\" />
+    <Folder Include="Features\Grade\Queries\Handlers\" />
+    <Folder Include="Features\Grade\Queries\Models\" />
+    <Folder Include="Features\Parent\Commands\Handlers\" />
+    <Folder Include="Features\Parent\Commands\Models\" />
+    <Folder Include="Features\Parent\Commands\Validations\" />
+    <Folder Include="Features\Parent\Queries\Handlers\" />
+    <Folder Include="Features\Parent\Queries\Models\" />
+    <Folder Include="Features\Schedule\Commands\Handlers\" />
+    <Folder Include="Features\Schedule\Commands\Models\" />
+    <Folder Include="Features\Schedule\Commands\Validations\" />
+    <Folder Include="Features\Schedule\Queries\Handlers\" />
+    <Folder Include="Features\Schedule\Queries\Models\" />
+    <Folder Include="Features\SchoolEvent\Commands\Handlers\" />
+    <Folder Include="Features\SchoolEvent\Commands\Models\" />
+    <Folder Include="Features\SchoolEvent\Commands\Validations\" />
+    <Folder Include="Features\SchoolEvent\Queries\Handlers\" />
+    <Folder Include="Features\SchoolEvent\Queries\Models\" />
+    <Folder Include="Features\Staff\Commands\Handlers\" />
+    <Folder Include="Features\Staff\Commands\Models\" />
+    <Folder Include="Features\Staff\Commands\Validations\" />
+    <Folder Include="Features\Staff\Queries\Handlers\" />
+    <Folder Include="Features\Staff\Queries\Models\" />
+    <Folder Include="Features\StudentActivity\Commands\Handlers\" />
+    <Folder Include="Features\StudentActivity\Commands\Models\" />
+    <Folder Include="Features\StudentActivity\Commands\Validations\" />
+    <Folder Include="Features\StudentActivity\Queries\Handlers\" />
+    <Folder Include="Features\StudentActivity\Queries\Models\" />
+    <Folder Include="Features\SubjectTeacher\Commands\Handlers\" />
+    <Folder Include="Features\SubjectTeacher\Commands\Models\" />
+    <Folder Include="Features\SubjectTeacher\Commands\Validations\" />
+    <Folder Include="Features\SubjectTeacher\Queries\Handlers\" />
+    <Folder Include="Features\SubjectTeacher\Queries\Models\" />
+    <Folder Include="Features\Subject\Commands\Handlers\" />
+    <Folder Include="Features\Subject\Commands\Models\" />
+    <Folder Include="Features\Subject\Commands\Validations\" />
+    <Folder Include="Features\Subject\Queries\Handlers\" />
+    <Folder Include="Features\Subject\Queries\Models\" />
+    <Folder Include="Features\Teacher\Commands\Handlers\" />
+    <Folder Include="Features\Teacher\Commands\Models\" />
+    <Folder Include="Features\Teacher\Commands\Validations\" />
+    <Folder Include="Features\Teacher\Queries\Handlers\" />
+    <Folder Include="Features\Teacher\Queries\Models\" />
+    <Folder Include="Mappping\ClassrommMapping\CommandMapping\" />
+    <Folder Include="Mappping\ClassrommMapping\QueryMapping\" />
+    <Folder Include="Mappping\DepartmentMapping\CommandMapping\" />
+    <Folder Include="Mappping\DepartmentSubjectMapping\CommandMapping\" />
+    <Folder Include="Mappping\DepartmentSubjectMapping\QueryMapping\" />
+    <Folder Include="Mappping\EnrollementMapping\CommandMapping\" />
+    <Folder Include="Mappping\EnrollementMapping\QueryMapping\" />
+    <Folder Include="Mappping\ExtraCurricalActivityMapping\CommandMapping\" />
+    <Folder Include="Mappping\ExtraCurricalActivityMapping\QueryMapping\" />
+    <Folder Include="Mappping\GradeMapping\CommandMapping\" />
+    <Folder Include="Mappping\GradeMapping\QueryMapping\" />
+    <Folder Include="Mappping\ParentMapping\CommandMapping\" />
+    <Folder Include="Mappping\ParentMapping\QueryMapping\" />
+    <Folder Include="Mappping\ScheduleMapping\CommandMapping\" />
+    <Folder Include="Mappping\ScheduleMapping\QueryMapping\" />
+    <Folder Include="Mappping\SchoolEventMapping\CommandMapping\" />
+    <Folder Include="Mappping\SchoolEventMapping\QueryMapping\" />
+    <Folder Include="Mappping\StaffMapping\CommandMapping\" />
+    <Folder Include="Mappping\StaffMapping\QueryMapping\" />
+    <Folder Include="Mappping\SubjectActivityMapping\CommandMapping\" />
+    <Folder Include="Mappping\SubjectActivityMapping\QueryMapping\" />
+    <Folder Include="Mappping\SubjectMapping\CommandMapping\" />
+    <Folder Include="Mappping\SubjectMapping\QueryMapping\" />
+    <Folder Include="Mappping\InstructorSubjectMapping\CommandMapping\" />
+    <Folder Include="Mappping\InstructorSubjectMapping\QueryMapping\" />
+    <Folder Include="Mappping\InstructorMapping\CommandMapping\" />
+    <Folder Include="Mappping\InstructorMapping\QueryMapping\" />
+    <Folder Include="Mappping\AttendanceMapping\CommandMapping\" />
+    <Folder Include="Mappping\AttendanceMapping\QueryMapping\" />
+    <Folder Include="Mappping\AssessmentMapping\CommandMapping\" />
+    <Folder Include="Mappping\AssessmentMapping\QueryMapping\" />
+  </ItemGroup>
+
+</Project>
