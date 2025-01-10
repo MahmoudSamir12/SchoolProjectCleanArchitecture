@@ -8,6 +8,7 @@ namespace SchoolProject.Core.Features.Department.Queries.DTOs
         public string? DepartmentName { get; set; }
         public string? ManagerName { get; set; }
         public PaginatedResult<StudentResponse>? StudentList { get; set; }
+        //public List<StudentResponse>? StudentList { get; set; }
         public List<SubjectResponse>? SubjectList { get; set; }
         public List<InstructorResponse>? InstructorList { get; set; }
 

@@ -24,11 +24,15 @@ namespace SchoolProject.Data.Entities
         [Required, StringLength(100)]
         public string DepartmentNameAr { get; set; }
         public Guid InstManger { get; set; }
+
         [ForeignKey("InstManger")]
-        [InverseProperty("DepartmentManager")]
-        public virtual Instructor Instructor { get; set; } = null!;
+        [InverseProperty("departmentManager")]
+        public virtual Instructor? Instructor { get; set; }
+        //----------------------------------------------------------------
         public virtual ICollection<Student> Students { get; set; }
         public virtual ICollection<DepartmentSubject> DepartmentSubjects { get; set; }
+
+        [InverseProperty("department")]
         public virtual ICollection<Instructor> Instructors { get; set; }
     }
 }

@@ -32,7 +32,6 @@ namespace SchoolProject.Core.Features.Students.Queries.Handlers
         {
             var studentList = await _studentService.GetAllStudentsAsync();
             var mappedStudents = _mapper.Map<List<GetAllStudentsDto>>(studentList);
-            //return Success(mappedStudents);
             var result = Success(mappedStudents);
             result.Meta = new { Count = mappedStudents.Count() };
             return result;
@@ -41,7 +40,6 @@ namespace SchoolProject.Core.Features.Students.Queries.Handlers
         public async Task<Response<GetStudentDetailsDto>> Handle(GetStudentByIdQuery request, CancellationToken cancellationToken)
         {
             var student = await _studentService.GetStudentByIdWithIncludeAsync(request.Id);
-            //if (student == null) return NotFound<GetStudentDetailsDto>("Student Not Found");
             if (student == null) return NotFound<GetStudentDetailsDto>(_localizer[SharedResourcesKeys.NotFound]);
             var mappedStudent = _mapper.Map<GetStudentDetailsDto>(student);
             return Success(mappedStudent);
@@ -50,10 +48,8 @@ namespace SchoolProject.Core.Features.Students.Queries.Handlers
         public async Task<PaginatedResult<GetStudentPaginatedListDto>> Handle(GetStudentPaginatedListQuery request, CancellationToken cancellationToken)
         {
             Expression<Func<Student, GetStudentPaginatedListDto>> expression = e => new GetStudentPaginatedListDto(e.Id, e.Localize(e.NameAr, e.NameEn), e.Email, e.Address, e.Phone, e.DateOfBirth, e.Department.DepartmentNameAr, e.Parent.Name);
-            //var queryable = _studentService.GetAllStudentsQueryable();
             var filterQuery = _studentService.FilterStudentsPaginatedQueryable(request.OrderBy, request.Search);
             var paginatedList = await filterQuery.Select(expression).ToPaginatedListAsync(request.PageNumber, request.PageSize);
-            //return paginatedList;
             paginatedList.Meta = new { Count = paginatedList.Data.Count() };
             return paginatedList;
         }

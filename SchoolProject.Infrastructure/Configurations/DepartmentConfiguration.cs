@@ -12,7 +12,7 @@ namespace SchoolProject.Infrastructure.Configurations
             entity.Property(d => d.DepartmentNameEn).IsRequired().HasMaxLength(100);
             entity.Property(d => d.DepartmentNameAr).IsRequired().HasMaxLength(100);
             entity.HasOne(x => x.Instructor)
-                .WithOne(d => d.DepartmentManager)
+                .WithOne(d => d.departmentManager)
                 .HasForeignKey<Department>(x => x.InstManger)
                 .OnDelete(DeleteBehavior.Restrict);
 

@@ -9,12 +9,14 @@ namespace SchoolProject.Core.Features.Students.Commands.Validation
     public class AddStudentValidation : AbstractValidator<AddStudentCommand>
     {
         private readonly IStudentService _studentService;
+        private readonly IDepartmentService _departmentService;
         private readonly IStringLocalizer<SharedResources> _localizer;
 
-        public AddStudentValidation(IStudentService studentService,
-                                                    IStringLocalizer<SharedResources> localizer)
+        public AddStudentValidation(IStudentService studentService, IDepartmentService departmentService,
+                                    IStringLocalizer<SharedResources> localizer)
         {
             _studentService = studentService;
+            _departmentService = departmentService;
             _localizer = localizer;
             ApplyValidationRules();
             ApplyCustomValidationRules();
@@ -46,11 +48,13 @@ namespace SchoolProject.Core.Features.Students.Commands.Validation
                 .Length(0, 15).WithMessage("Phone number must be at most 15 characters.");
 
             RuleFor(dob => dob.DateOfBirth)
-                .NotEmpty().WithMessage("Date of birth is required.")
-                .LessThan(DateTime.Now).WithMessage("Date of birth must be in the past.");
+                 .NotEmpty().WithMessage(_localizer[SharedResourcesKeys.NotEmpty])
+                 .NotNull().WithMessage(_localizer[SharedResourcesKeys.Required])
+                 .LessThan(DateTime.Now).WithMessage("Date of birth must be in the past.");
 
             RuleFor(student => student.DepartmentId)
-                .NotNull().WithMessage("Department is required.");
+                 .NotEmpty().WithMessage(_localizer[SharedResourcesKeys.NotEmpty])
+                 .NotNull().WithMessage(_localizer[SharedResourcesKeys.Required]);
 
             RuleFor(student => student.ParentId)
                 .NotNull().WithMessage("Parent is required.");
@@ -65,6 +69,10 @@ namespace SchoolProject.Core.Features.Students.Commands.Validation
             RuleFor(n => n.NameEn)
                 .MustAsync(async (key, CancellationToken) => !await _studentService.IsNameEnExist(key))
                 .WithMessage(_localizer[SharedResourcesKeys.IsExist]);
+
+            RuleFor(n => n.DepartmentId)
+                .MustAsync(async (key, CancellationToken) => await _departmentService.IsDepartmentExist(key))
+                .WithMessage(_localizer[SharedResourcesKeys.IsNotExist]);
         }
 
     }

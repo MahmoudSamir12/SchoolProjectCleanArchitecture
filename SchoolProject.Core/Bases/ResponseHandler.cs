@@ -48,10 +48,11 @@ namespace SchoolProject.Core.Bases
             return CreateResponse<T>(HttpStatusCode.UnprocessableEntity, false,
                                  message ?? _localizer[SharedResourcesKeys.UnprocessableEntity]);
         }
-        public Response<T> NotFound<T>(string? message = null)
+        public Response<T> NotFound<T>(string? message = null, List<string>? errors = null)
         {
             return CreateResponse<T>(HttpStatusCode.NotFound, false,
-                                 message ?? _localizer[SharedResourcesKeys.NotFound]);
+                                 message ?? _localizer[SharedResourcesKeys.NotFound],
+                                 errors ?? new List<string>());
         }
 
         public Response<T> Created<T>(T entity, object? meta = null)

@@ -25,14 +25,14 @@ namespace SchoolProject.Data.Entities
 
         [Key]
         public Guid InstructorId { get; set; }
-        //[ForeignKey(nameof(Teacher))]
         [ForeignKey(nameof(InstructorId))]
+        [InverseProperty("InstructorSubjects")]
         public virtual Instructor? Instructor { get; set; }
 
         [Key]
         public Guid SubjectId { get; set; }
-        //[ForeignKey(nameof(Subject))]
         [ForeignKey(nameof(SubjectId))]
+        [InverseProperty("InstructorSubjects")]
         public virtual Subject Subject { get; set; } = null!;
 
         public virtual ICollection<Schedule> Schedules { get; set; }

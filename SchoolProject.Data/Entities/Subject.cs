@@ -1,5 +1,6 @@
 ﻿using SchoolProject.Data.Commons;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SchoolProject.Data.Entities
 {
@@ -34,6 +35,7 @@ namespace SchoolProject.Data.Entities
         public string SubjectNameAr { get; set; }
         public int Period { get; set; }
 
+        [InverseProperty("Subject")]
         public virtual ICollection<InstructorSubject> InstructorSubjects { get; set; }
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         public virtual ICollection<DepartmentSubject> DepartmentSubjects { get; set; }

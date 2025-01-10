@@ -40,7 +40,12 @@ namespace SchoolProject.Core.Features.Department.Queries.Handlers
             var department = await _departmentService.GetDepartmentByIdWithIncludeAsync(request.Id);
             //if (student == null) return NotFound<GetStudentDetailsDto>("Student Not Found");
             if (department == null)
-                return NotFound<GetDepartmentDetailsDto>(_localizer[SharedResourcesKeys.NotFound]);
+            {
+                var notFoundMessage = $"Department with ID {request.Id} was not found in the database.";
+                return NotFound<GetDepartmentDetailsDto>(_localizer[SharedResourcesKeys.NotFound],
+                    new List<string> { notFoundMessage });
+
+            }
             var mappedDepartment = _mapper.Map<GetDepartmentDetailsDto>(department);
             //Pagination
             Expression<Func<Student, StudentResponse>> expression = e => new StudentResponse(e.Id, e.Localize(e.NameAr, e.NameEn));
@@ -48,7 +53,9 @@ namespace SchoolProject.Core.Features.Department.Queries.Handlers
             var paginatedList = await studentQuerable.Select(expression).ToPaginatedListAsync(request.StudentPageNumber, request.StudentPageSize);
             mappedDepartment.StudentList = paginatedList;
             return Success(mappedDepartment);
+
         }
+        //ca248b7a-0a98-485a-889f-27f420bc41ef
         #endregion
 
 

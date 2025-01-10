@@ -45,6 +45,7 @@ namespace SchoolProject.Core.Middleware
 
                     case KeyNotFoundException e:
                         responseModel.Message = error.Message;
+                        responseModel.Message += e.InnerException == null ? "" : "\n" + e.InnerException;
                         responseModel.StatusCode = HttpStatusCode.NotFound;
                         response.StatusCode = (int)HttpStatusCode.NotFound;
                         break;
