@@ -15,7 +15,6 @@ namespace SchoolProject.Infrastructure.AppDbContext
 
         }
 
-        public DbSet<User> User { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
