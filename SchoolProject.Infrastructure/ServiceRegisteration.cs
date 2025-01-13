@@ -9,7 +9,7 @@ namespace SchoolProject.Infrastructure
     {
         public static IServiceCollection AddServiceRegisteration(this IServiceCollection services)
         {
-            services.AddIdentity<User, IdentityRole>(option =>
+            services.AddIdentity<User, Role>(option =>
             {
                 // Password settings.
                 option.Password.RequireDigit = true;
