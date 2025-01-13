@@ -56,8 +56,7 @@ namespace SchoolProject.Core.Features.Students.Commands.Validation
                  .NotEmpty().WithMessage(_localizer[SharedResourcesKeys.NotEmpty])
                  .NotNull().WithMessage(_localizer[SharedResourcesKeys.Required]);
 
-            RuleFor(student => student.ParentId)
-                .NotNull().WithMessage("Parent is required.");
+
         }
 
         public void ApplyCustomValidationRules()

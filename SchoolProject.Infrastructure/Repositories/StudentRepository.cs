@@ -3,11 +3,6 @@ using SchoolProject.Data.Entities;
 using SchoolProject.Infrastructure.AppDbContext;
 using SchoolProject.Infrastructure.GenericRepos;
 using SchoolProject.Infrastructure.IRepositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchoolProject.Infrastructure.Repositories
 {
@@ -23,7 +18,6 @@ namespace SchoolProject.Infrastructure.Repositories
         {
             return await _dbContext.Students
                 .Include(dept => dept.Department)
-                .Include(par => par.Parent)
                 .ToListAsync();
         }
     }

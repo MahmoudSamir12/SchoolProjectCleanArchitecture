@@ -47,7 +47,7 @@ namespace SchoolProject.Core.Features.Students.Queries.Handlers
 
         public async Task<PaginatedResult<GetStudentPaginatedListDto>> Handle(GetStudentPaginatedListQuery request, CancellationToken cancellationToken)
         {
-            Expression<Func<Student, GetStudentPaginatedListDto>> expression = e => new GetStudentPaginatedListDto(e.Id, e.Localize(e.NameAr, e.NameEn), e.Email, e.Address, e.Phone, e.DateOfBirth, e.Department.DepartmentNameAr, e.Parent.Name);
+            Expression<Func<Student, GetStudentPaginatedListDto>> expression = e => new GetStudentPaginatedListDto(e.Id, e.Localize(e.NameAr, e.NameEn), e.Email, e.Address, e.Phone, e.DateOfBirth, e.Department.DepartmentNameAr);
             var filterQuery = _studentService.FilterStudentsPaginatedQueryable(request.OrderBy, request.Search);
             var paginatedList = await filterQuery.Select(expression).ToPaginatedListAsync(request.PageNumber, request.PageSize);
             paginatedList.Meta = new { Count = paginatedList.Data.Count() };

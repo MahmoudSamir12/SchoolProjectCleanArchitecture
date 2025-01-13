@@ -34,7 +34,8 @@ namespace SchoolProject.Api
             #region Dependency Injection
             builder.Services.AddInfrastructureDependencies()
                              .AddServiceDependencies()
-                             .AddCoreDependencies();
+                             .AddCoreDependencies()
+                             .AddServiceRegisteration();
             #endregion
 
             #region Localization

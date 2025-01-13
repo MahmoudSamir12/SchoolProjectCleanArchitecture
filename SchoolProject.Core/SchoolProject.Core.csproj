@@ -70,11 +70,6 @@
     <Folder Include="Features\Instructor\Queries\Handlers\" />
     <Folder Include="Features\Instructor\Queries\Models\" />
     <Folder Include="Features\InstructorSubject\" />
-    <Folder Include="Features\Parent\Commands\Handlers\" />
-    <Folder Include="Features\Parent\Commands\Models\" />
-    <Folder Include="Features\Parent\Commands\Validations\" />
-    <Folder Include="Features\Parent\Queries\Handlers\" />
-    <Folder Include="Features\Parent\Queries\Models\" />
     <Folder Include="Features\Schedule\Commands\Handlers\" />
     <Folder Include="Features\Schedule\Commands\Models\" />
     <Folder Include="Features\Schedule\Commands\Validations\" />
@@ -113,8 +108,6 @@
     <Folder Include="Mappping\ExtraCurricalActivityMapping\QueryMapping\" />
     <Folder Include="Mappping\GradeMapping\CommandMapping\" />
     <Folder Include="Mappping\GradeMapping\QueryMapping\" />
-    <Folder Include="Mappping\ParentMapping\CommandMapping\" />
-    <Folder Include="Mappping\ParentMapping\QueryMapping\" />
     <Folder Include="Mappping\ScheduleMapping\CommandMapping\" />
     <Folder Include="Mappping\ScheduleMapping\QueryMapping\" />
     <Folder Include="Mappping\SchoolEventMapping\CommandMapping\" />

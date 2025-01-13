@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SchoolProject.Core.Features.Students.Queries.DTOs
+﻿namespace SchoolProject.Core.Features.Students.Queries.DTOs
 {
     public class GetAllStudentsDto
     {
@@ -16,7 +10,5 @@ namespace SchoolProject.Core.Features.Students.Queries.DTOs
         public DateTime DateOfBirth { get; set; }
         //public Guid DepartmentId { get; set; }
         public string DepartmentName { get; set; } = string.Empty;
-        //public Guid ParentId { get; set; }
-        public string ParentName { get; set; } = string.Empty;
     }
 }
