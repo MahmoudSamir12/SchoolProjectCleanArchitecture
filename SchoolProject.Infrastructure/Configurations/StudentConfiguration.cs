@@ -19,10 +19,7 @@ namespace SchoolProject.Infrastructure.Configurations
                   .WithMany(d => d.Students)
                   .HasForeignKey(s => s.DepartmentId)
                   .OnDelete(DeleteBehavior.Restrict);
-            builder.HasOne(s => s.Parent)
-                  .WithMany(p => p.Childrens)
-                  .HasForeignKey(s => s.ParentId)
-                  .OnDelete(DeleteBehavior.Restrict);
+
 
         }
 

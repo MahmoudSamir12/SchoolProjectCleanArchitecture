@@ -43,7 +43,6 @@ namespace SchoolProject.Core.Features.Students.Commands.DTOs
         [ForeignKey(nameof(Department))]
         public Guid DepartmentId { get; set; }
 
-        [ForeignKey(nameof(Parent))]
-        public Guid ParentId { get; set; }
+
     }
 }

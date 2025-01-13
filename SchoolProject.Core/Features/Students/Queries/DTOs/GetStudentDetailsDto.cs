@@ -10,8 +10,7 @@
         public DateTime DateOfBirth { get; set; }
         //public Guid DepartmentId { get; set; }
         public string DepartmentName { get; set; } = string.Empty;
-        //public Guid ParentId { get; set; }
-        public string ParentName { get; set; } = string.Empty;
+
 
     }
 }

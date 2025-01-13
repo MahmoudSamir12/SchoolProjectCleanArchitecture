@@ -54,9 +54,7 @@ namespace SchoolProject.Core.Features.Students.Commands.Validation
                 .NotNull()
                 .WithMessage("Department is required.");
 
-            RuleFor(student => student.ParentId)
-                .NotNull()
-                .WithMessage("Parent is required.");
+
         }
 
         public void ApplyCustomValidationRules()

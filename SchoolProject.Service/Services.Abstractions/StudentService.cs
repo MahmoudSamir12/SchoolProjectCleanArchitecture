@@ -28,7 +28,6 @@ namespace SchoolProject.Service.Services.Abstractions
         {
             return _studentRepository.GetTableNoTracking()
                                             .Include(dept => dept.Department)
-                                            .Include(par => par.Parent)
                                             .AsQueryable();
         }
         #endregion
@@ -38,7 +37,6 @@ namespace SchoolProject.Service.Services.Abstractions
         {
             var queryable = _studentRepository.GetTableNoTracking()
                                             .Include(dept => dept.Department)
-                                            .Include(par => par.Parent)
                                             .AsQueryable();
             if (search != null)
             {
@@ -79,7 +77,6 @@ namespace SchoolProject.Service.Services.Abstractions
             //return await _studentRepository.GetByIdAsync(id);
             var student = await _studentRepository.GetTableNoTracking()
                                             .Include(dept => dept.Department)
-                                            .Include(par => par.Parent)
                                             .Include(enr => enr.Enrollments)
                                             .Where(std => std.Id == id)
                                             .FirstOrDefaultAsync();

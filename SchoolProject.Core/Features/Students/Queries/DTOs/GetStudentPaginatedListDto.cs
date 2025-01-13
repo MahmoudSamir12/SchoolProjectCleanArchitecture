@@ -3,7 +3,7 @@
     public class GetStudentPaginatedListDto
     {
         public GetStudentPaginatedListDto(Guid id, string name, string email, string address,
-                string phone, DateTime dateOfBirth, string departmentName, string parentName)
+                string phone, DateTime dateOfBirth, string departmentName)
         {
             Id = id;
             Name = name;
@@ -12,7 +12,6 @@
             Phone = phone;
             DateOfBirth = dateOfBirth;
             DepartmentName = departmentName;
-            ParentName = parentName;
         }
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -22,7 +21,6 @@
         public DateTime DateOfBirth { get; set; }
         //public Guid DepartmentId { get; set; }
         public string DepartmentName { get; set; }
-        //public Guid ParentId { get; set; }
-        public string ParentName { get; set; }
+
     }
 }

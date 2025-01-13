@@ -13,6 +13,5 @@ namespace SchoolProject.Core.Features.Students.Commands.Models
         public string? Phone { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Guid DepartmentId { get; set; }
-        public Guid ParentId { get; set; }
     }
 }

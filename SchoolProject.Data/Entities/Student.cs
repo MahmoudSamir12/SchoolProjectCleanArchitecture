@@ -17,14 +17,13 @@ namespace SchoolProject.Data.Entities
             StudentActivities = new HashSet<StudentActivity>();
         }
 
-        public Student(string name, string nameAr, string email, string phone, Department department, Parent parent)
+        public Student(string name, string nameAr, string email, string phone, Department department)
         {
             NameEn = name ?? throw new ArgumentNullException(nameof(name));
             NameAr = nameAr ?? throw new ArgumentNullException(nameof(nameAr));
             Email = email;
             Phone = phone;
             Department = department ?? throw new ArgumentNullException(nameof(department));
-            Parent = parent;
             Enrollments = new HashSet<Enrollment>();
             StudentActivities = new HashSet<StudentActivity>();
 
@@ -58,11 +57,6 @@ namespace SchoolProject.Data.Entities
         [ForeignKey(nameof(Department))]
         public Guid DepartmentId { get; set; }
         public virtual Department Department { get; set; } = null!;
-
-        [ForeignKey(nameof(Parent))]
-        public Guid ParentId { get; set; }
-        public virtual Parent Parent { get; set; } = null!;
-
 
     }
 }
