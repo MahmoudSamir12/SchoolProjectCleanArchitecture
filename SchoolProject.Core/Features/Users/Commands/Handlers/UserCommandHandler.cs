@@ -13,7 +13,8 @@ namespace SchoolProject.Core.Features.Users.Commands.Handlers
 {
     public class UserCommandHandler : ResponseHandler,
                                 IRequestHandler<AddUserCommand, Response<string>>,
-                                IRequestHandler<EditUserCommand, Response<string>>
+                                IRequestHandler<EditUserCommand, Response<string>>,
+                                IRequestHandler<DeleteUserCommand, Response<string>>
     {
         private readonly IMapper _mapper;
         private readonly IUserService _userService;
@@ -29,7 +30,7 @@ namespace SchoolProject.Core.Features.Users.Commands.Handlers
             _localizer = localizer;
         }
 
-        #region AddUser
+        #region AddUserHandler
         public async Task<Response<string>> Handle(AddUserCommand request, CancellationToken cancellationToken)
         {
             //Check if the entered email is existed or not
@@ -55,7 +56,7 @@ namespace SchoolProject.Core.Features.Users.Commands.Handlers
         }
         #endregion
 
-        #region EditUser
+        #region EditUserHandler
         public async Task<Response<string>> Handle(EditUserCommand request, CancellationToken cancellationToken)
         {
             var existedUser = await _userManager.Users.FirstOrDefaultAsync(u => u.Id.Equals(request.Id));
@@ -70,6 +71,20 @@ namespace SchoolProject.Core.Features.Users.Commands.Handlers
             //return Success($"Updated Successfully {newUser.Id}");
             else
                 return BadRequest<string>(_localizer[SharedResourcesKeys.UpdatedFailed]);
+        }
+        #endregion
+
+        #region DeleteUserHandler
+        public async Task<Response<string>> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+        {
+            var checkedUser = await _userManager.Users.FirstOrDefaultAsync(u => u.Id.Equals(request.Id));
+            if (checkedUser == null) return NotFound<string>(_localizer[SharedResourcesKeys.DeletedFailed]);
+
+            var result = await _userManager.DeleteAsync(checkedUser);
+            if (result.Succeeded)
+                return Deleted<string>(_localizer[SharedResourcesKeys.Deleted] + " " + $"{checkedUser.Id}");
+            else
+                return BadRequest<string>();
         }
         #endregion
     }
