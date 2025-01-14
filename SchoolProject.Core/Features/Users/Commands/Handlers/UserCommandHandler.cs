@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using SchoolProject.Core.Bases;
 using SchoolProject.Core.Features.Users.Commands.Models;
@@ -11,7 +12,8 @@ using SchoolProject.Service.IServices;
 namespace SchoolProject.Core.Features.Users.Commands.Handlers
 {
     public class UserCommandHandler : ResponseHandler,
-                                IRequestHandler<AddUserCommand, Response<string>>
+                                IRequestHandler<AddUserCommand, Response<string>>,
+                                IRequestHandler<EditUserCommand, Response<string>>
     {
         private readonly IMapper _mapper;
         private readonly IUserService _userService;
@@ -46,10 +48,28 @@ namespace SchoolProject.Core.Features.Users.Commands.Handlers
             var IdentityUser = _mapper.Map<User>(request);
             var createUser = await _userManager.CreateAsync(IdentityUser, request.Password);
             if (!createUser.Succeeded)
-                //return BadRequest<string>(_localizer[SharedResourcesKeys.FailedToAddUser]);
-                return BadRequest<string>(createUser.Errors.FirstOrDefault().Description);
+                return BadRequest<string>(_localizer[SharedResourcesKeys.FailedToAddUser]);
+            //return BadRequest<string>(createUser.Errors.FirstOrDefault().Description);
 
             return Created("");
+        }
+        #endregion
+
+        #region EditUser
+        public async Task<Response<string>> Handle(EditUserCommand request, CancellationToken cancellationToken)
+        {
+            var existedUser = await _userManager.Users.FirstOrDefaultAsync(u => u.Id.Equals(request.Id));
+            //if (existedUser == null) return NotFound<string>(_localizer[SharedResourcesKeys.NotFound]);
+            if (existedUser == null) return NotFound<string>();
+
+            var newUser = _mapper.Map(request, existedUser);
+
+            var result = await _userManager.UpdateAsync(newUser);
+            if (result.Succeeded)
+                return Success((string)_localizer[SharedResourcesKeys.Updated] + " " + $"{newUser.Id}");
+            //return Success($"Updated Successfully {newUser.Id}");
+            else
+                return BadRequest<string>(_localizer[SharedResourcesKeys.UpdatedFailed]);
         }
         #endregion
     }

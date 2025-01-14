@@ -6,9 +6,10 @@ namespace SchoolProject.Core.Mappping.UserMapping
     {
         public UserProfile()
         {
-            AddUserMapping();
             GetUsersPaginationMapping();
             GetUserByIdMapping();
+            AddUserMapping();
+            EditUserMapping();
         }
     }
 }
