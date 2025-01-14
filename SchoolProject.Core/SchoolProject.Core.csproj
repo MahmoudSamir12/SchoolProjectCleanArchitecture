@@ -97,8 +97,6 @@
     <Folder Include="Features\Subject\Commands\Validations\" />
     <Folder Include="Features\Subject\Queries\Handlers\" />
     <Folder Include="Features\Subject\Queries\Models\" />
-    <Folder Include="Features\Users\Queries\Handlers\" />
-    <Folder Include="Features\Users\Queries\Models\" />
     <Folder Include="Mappping\ClassrommMapping\CommandMapping\" />
     <Folder Include="Mappping\ClassrommMapping\QueryMapping\" />
     <Folder Include="Mappping\DepartmentMapping\CommandMapping\" />
@@ -126,7 +124,6 @@
     <Folder Include="Mappping\AttendanceMapping\QueryMapping\" />
     <Folder Include="Mappping\AssessmentMapping\CommandMapping\" />
     <Folder Include="Mappping\AssessmentMapping\QueryMapping\" />
-    <Folder Include="Mappping\UserMapping\QueryMapping\" />
   </ItemGroup>
 
 </Project>
