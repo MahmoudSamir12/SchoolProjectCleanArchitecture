@@ -11,10 +11,10 @@
         {
             public const string Prefix = Rule + "Student/";
             public const string AllStudents = Prefix + "GetAllStudents";
-            public const string Paginated = Prefix + "PaginatedList";
+            public const string Paginated = Prefix + "StudentsPaginatedList";
             public const string GetStudentDetails = Prefix + "StudentDetails/{Id}";
             public const string UpdateStudent = Prefix + "UpdateStudent";
-            public const string AddStudent = Prefix + "AddStudent";
+            public const string CreateStudent = Prefix + "AddStudent";
             public const string DeleteStudent = Prefix + "DeleteStudent/{Id}";
         }
 
@@ -26,8 +26,19 @@
             //public const string GetDepartmentDetails = Prefix + "DepartmentDetails/{Id}";
             public const string GetDepartmentDetails = Prefix + "DepartmentDetails/Id";
             public const string UpdateDepartment = Prefix + "UpdateDepartment";
-            public const string AddDepartment = Prefix + "AddDepartment";
+            public const string CreateDepartment = Prefix + "AddDepartment";
             public const string DeleteDepartment = Prefix + "DeleteDepartment/{Id}";
+        }
+
+        public static class UserRouting
+        {
+            public const string Prefix = Rule + "Users/";
+            public const string AllUsers = Prefix + "GetAllUsers";
+            public const string Paginated = Prefix + "UsersPaginatedList";
+            public const string GetUserDetails = Prefix + "GetUserDetails/{Id}";
+            public const string UpdateUser = Prefix + "UpdateUser";
+            public const string CreateUser = Prefix + "AddUser";
+            public const string DeleteUser = Prefix + "DeleteUser/{Id}";
         }
 
 
