@@ -7,15 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Features\Parent\**" />
-    <Compile Remove="Mappping\ParentMapping\**" />
-    <EmbeddedResource Remove="Features\Parent\**" />
-    <EmbeddedResource Remove="Mappping\ParentMapping\**" />
-    <None Remove="Features\Parent\**" />
-    <None Remove="Mappping\ParentMapping\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SchoolProject.Data\SchoolProject.Data.csproj" />
     <ProjectReference Include="..\SchoolProject.Infrastructure\SchoolProject.Infrastructure.csproj" />
     <ProjectReference Include="..\SchoolProject.Service\SchoolProject.Service.csproj" />
@@ -41,7 +32,6 @@
     <Folder Include="Features\Attendance\Commands\Validations\" />
     <Folder Include="Features\Attendance\Queries\Handlers\" />
     <Folder Include="Features\Attendance\Queries\Models\" />
-    <Folder Include="Features\Authentication\Commands\DTOs\" />
     <Folder Include="Features\Classroom\Commands\Handlers\" />
     <Folder Include="Features\Classroom\Commands\Models\" />
     <Folder Include="Features\Classroom\Commands\Validations\" />
