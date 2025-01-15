@@ -39,7 +39,7 @@ namespace SchoolProject.Api.Controllers
             return NewResult(response);
         }
 
-        [HttpPut(Router.StudentRouting.UpdateStudent)]
+        [HttpPut(Router.StudentRouting.EditStudent)]
         public async Task<IActionResult> EditStudent([FromBody] EditStudentCommand command)
         {
             var response = await Mediator.Send(command);

@@ -25,6 +25,7 @@ namespace SchoolProject.Core.Features.Students.Commands.Handlers
             _localizer = localizer;
         }
 
+        #region AddStudentHandler
         public async Task<Response<string>> Handle(AddStudentCommand request, CancellationToken cancellationToken)
         {
             var mappedStudent = _mapper.Map<Student>(request);
@@ -33,27 +34,31 @@ namespace SchoolProject.Core.Features.Students.Commands.Handlers
             else return BadRequest<string>();
 
         }
+        #endregion
 
+        #region EditStudentHandler
         public async Task<Response<string>> Handle(EditStudentCommand request, CancellationToken cancellationToken)
         {
             var existedStudent = await _studentService.GetByIdAsync(request.Id);
-            if (existedStudent == null) return NotFound<string>("Student Not Found");
+            if (existedStudent == null) return NotFound<string>(_localizer[SharedResourcesKeys.NotFound]);
 
             //var mappedStudent = _mapper.Map<Student>(request);
             var mappedStudent = _mapper.Map(request, existedStudent);
             var updatedStudent = await _studentService.EditStudentAsync(mappedStudent);
 
             if (updatedStudent == "Success")
-                return Success($"Updated Successfully {mappedStudent.Id}");
+                return Success((string)_localizer[SharedResourcesKeys.Updated] + " " + $"{mappedStudent.Id}");
             else
                 return BadRequest<string>();
 
         }
+        #endregion
 
+        #region DeleteStudentHandler
         public async Task<Response<string>> Handle(DeleteStudentCommand request, CancellationToken cancellationToken)
         {
             var student = await _studentService.GetByIdAsync(request.Id);
-            if (student == null) return NotFound<string>("Student Not Found");
+            if (student == null) return NotFound<string>(_localizer[SharedResourcesKeys.NotFound]);
 
             var result = await _studentService.DeleteStudentAsync(student);
 
@@ -62,5 +67,6 @@ namespace SchoolProject.Core.Features.Students.Commands.Handlers
             else
                 return BadRequest<string>();
         }
+        #endregion
     }
 }

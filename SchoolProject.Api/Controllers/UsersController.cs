@@ -39,5 +39,34 @@ namespace SchoolProject.Api.Controllers
             return NewResult(response);
         }
         #endregion
+
+        #region EditUser
+
+        [HttpPut(Router.UserRouting.EditUser)]
+        public async Task<IActionResult> EditUser([FromBody] EditUserCommand command)
+        {
+            var response = await Mediator.Send(command);
+            return NewResult(response);
+        }
+        #endregion
+
+        #region ChangeUserPassword
+
+        [HttpPut(Router.UserRouting.ChangePassword)]
+        public async Task<IActionResult> EditUserPassword([FromBody] ChangeUserPasswordCommand command)
+        {
+            var response = await Mediator.Send(command);
+            return NewResult(response);
+        }
+        #endregion
+
+        #region DeleteUser
+        [HttpDelete(Router.UserRouting.DeleteUser)]
+        public async Task<IActionResult> DeleteUser([FromRoute] Guid Id)
+        {
+            var response = await Mediator.Send(new DeleteUserCommand(Id));
+            return NewResult(response);
+        }
+        #endregion
     }
 }

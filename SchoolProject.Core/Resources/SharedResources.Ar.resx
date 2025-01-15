@@ -120,11 +120,17 @@
   <data name="BadRequest" xml:space="preserve">
     <value>هذا الطلب لا يمكن فهمه</value>
   </data>
+  <data name="ChangePasswordFailed" xml:space="preserve">
+    <value>حدث خطأ اثناء عملية تغيير الباسورد </value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>تم الأضافة بنجاح</value>
   </data>
   <data name="Deleted" xml:space="preserve">
     <value>تم الحذف بنجاح</value>
+  </data>
+  <data name="DeletedFailed" xml:space="preserve">
+    <value>حدث خطأ اثناء حذف البيانات</value>
   </data>
   <data name="DepartmentId" xml:space="preserve">
     <value>رقم القسم </value>
@@ -176,6 +182,9 @@
   </data>
   <data name="Updated" xml:space="preserve">
     <value>تم التعديل بنجاح</value>
+  </data>
+  <data name="UpdatedFailed" xml:space="preserve">
+    <value>حدث خطأ اثناء تحديث البيانات</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>اسم المستخدم</value>
