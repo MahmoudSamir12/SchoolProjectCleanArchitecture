@@ -162,6 +162,9 @@
   <data name="NotFound" xml:space="preserve">
     <value>غير متوفر</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>الباسورد</value>
+  </data>
   <data name="PasswordNotEqualConfirmPassword" xml:space="preserve">
     <value>كلمة المرور لا تتطابق </value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="UpdatedFailed" xml:space="preserve">
     <value>حدث خطأ اثناء تحديث البيانات</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
   </data>
   <data name="UserNameIsExist" xml:space="preserve">
     <value>اسم المستخد موجود بالفعل</value>

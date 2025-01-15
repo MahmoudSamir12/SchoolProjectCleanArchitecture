@@ -24,5 +24,7 @@
         public const string UpdatedFailed = "UpdatedFailed";
         public const string DeletedFailed = "DeletedFailed";
         public const string ChangePasswordFailed = "ChangePasswordFailed";
+        public const string UserName = "UserName";
+        public const string Password = "Password";
     }
 }
