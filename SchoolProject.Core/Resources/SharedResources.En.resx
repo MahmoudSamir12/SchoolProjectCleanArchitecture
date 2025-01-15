@@ -120,6 +120,9 @@
   <data name="BadRequest" xml:space="preserve">
     <value>Rwquest Can't be Understand</value>
   </data>
+  <data name="ChangePasswordFailed" xml:space="preserve">
+    <value>Failed To Change Password</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Created Successfully</value>
   </data>

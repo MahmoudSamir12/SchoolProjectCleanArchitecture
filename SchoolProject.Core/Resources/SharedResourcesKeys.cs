@@ -23,5 +23,6 @@
         public const string FailedToAddUser = "FailedToAddUser";
         public const string UpdatedFailed = "UpdatedFailed";
         public const string DeletedFailed = "DeletedFailed";
+        public const string ChangePasswordFailed = "ChangePasswordFailed";
     }
 }

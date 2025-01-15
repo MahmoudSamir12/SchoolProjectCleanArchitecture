@@ -50,6 +50,16 @@ namespace SchoolProject.Api.Controllers
         }
         #endregion
 
+        #region ChangeUserPassword
+
+        [HttpPut(Router.UserRouting.ChangePassword)]
+        public async Task<IActionResult> EditUserPassword([FromBody] ChangeUserPasswordCommand command)
+        {
+            var response = await Mediator.Send(command);
+            return NewResult(response);
+        }
+        #endregion
+
         #region DeleteUser
         [HttpDelete(Router.UserRouting.DeleteUser)]
         public async Task<IActionResult> DeleteUser([FromRoute] Guid Id)

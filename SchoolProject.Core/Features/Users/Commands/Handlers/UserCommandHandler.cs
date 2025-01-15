@@ -14,7 +14,8 @@ namespace SchoolProject.Core.Features.Users.Commands.Handlers
     public class UserCommandHandler : ResponseHandler,
                                 IRequestHandler<AddUserCommand, Response<string>>,
                                 IRequestHandler<EditUserCommand, Response<string>>,
-                                IRequestHandler<DeleteUserCommand, Response<string>>
+                                IRequestHandler<DeleteUserCommand, Response<string>>,
+                                IRequestHandler<ChangeUserPasswordCommand, Response<string>>
     {
         private readonly IMapper _mapper;
         private readonly IUserService _userService;
@@ -65,6 +66,11 @@ namespace SchoolProject.Core.Features.Users.Commands.Handlers
 
             var newUser = _mapper.Map(request, existedUser);
 
+            //Check if the entered UserName is existed or not
+            var userUserName = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == newUser.UserName && x.Id != newUser.Id);
+            if (userUserName != null)
+                return BadRequest<string>(_localizer[SharedResourcesKeys.UserNameIsExist]);
+
             var result = await _userManager.UpdateAsync(newUser);
             if (result.Succeeded)
                 return Success((string)_localizer[SharedResourcesKeys.Updated] + " " + $"{newUser.Id}");
@@ -85,6 +91,30 @@ namespace SchoolProject.Core.Features.Users.Commands.Handlers
                 return Deleted<string>(_localizer[SharedResourcesKeys.Deleted] + " " + $"{checkedUser.Id}");
             else
                 return BadRequest<string>();
+        }
+        #endregion
+
+        #region ChangeUserPasswordHandler
+        public async Task<Response<string>> Handle(ChangeUserPasswordCommand request, CancellationToken cancellationToken)
+        {
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id.Equals(request.Id));
+            //if (existedUser == null) return NotFound<string>(_localizer[SharedResourcesKeys.NotFound]);
+            if (user == null) return NotFound<string>();
+
+            //var newUser = _mapper.Map(request, existedUser);
+
+            var result = await _userManager.ChangePasswordAsync(user, request.CurrentPassword, request.NewPassword);
+            #region Another way
+            //var user1 = await _userManager.HasPasswordAsync(user);
+            //await _userManager.RemovePasswordAsync(user);
+            //await _userManager.AddPasswordAsync(user, request.NewPassword);
+            #endregion
+
+            if (result.Succeeded)
+                return Success((string)_localizer[SharedResourcesKeys.Updated]);
+            else
+                //return BadRequest<string>(_localizer[SharedResourcesKeys.ChangePasswordFailed]);
+                return BadRequest<string>(result.Errors.FirstOrDefault().Description);
         }
         #endregion
     }

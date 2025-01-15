@@ -37,6 +37,7 @@
             public const string Paginated = Prefix + "UsersPaginatedList";
             public const string GetUserDetails = Prefix + "GetUserDetails/{Id}";
             public const string EditUser = Prefix + "EditUser";
+            public const string ChangePassword = Prefix + "Change-Password";
             public const string CreateUser = Prefix + "AddUser";
             public const string DeleteUser = Prefix + "DeleteUser/{Id}";
         }
