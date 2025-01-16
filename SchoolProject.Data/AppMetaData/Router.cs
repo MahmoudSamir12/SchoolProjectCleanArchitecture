@@ -32,7 +32,7 @@
 
         public static class UserRouting
         {
-            public const string Prefix = Rule + "Users/";
+            public const string Prefix = Rule + "User/";
             public const string AllUsers = Prefix + "GetAllUsers";
             public const string Paginated = Prefix + "UsersPaginatedList";
             public const string GetUserDetails = Prefix + "GetUserDetails/{Id}";
@@ -40,6 +40,12 @@
             public const string ChangePassword = Prefix + "Change-Password";
             public const string CreateUser = Prefix + "AddUser";
             public const string DeleteUser = Prefix + "DeleteUser/{Id}";
+        }
+
+        public static class AuthenticationRouting
+        {
+            public const string Prefix = Rule + "Authentication/";
+            public const string SignIn = Prefix + "SignIn";
         }
 
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SchoolProject.Api.Base;
 using SchoolProject.Core.Features.Users.Commands.Models;
 using SchoolProject.Core.Features.Users.Queries.Models;
@@ -8,6 +9,7 @@ namespace SchoolProject.Api.Controllers
 {
     //[Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsersController : AppControllerBase
     {
         #region GetUserById
@@ -53,7 +55,7 @@ namespace SchoolProject.Api.Controllers
         #region ChangeUserPassword
 
         [HttpPut(Router.UserRouting.ChangePassword)]
-        public async Task<IActionResult> EditUserPassword([FromBody] ChangeUserPasswordCommand command)
+        public async Task<IActionResult> EditUserPassword([FromForm] ChangeUserPasswordCommand command)
         {
             var response = await Mediator.Send(command);
             return NewResult(response);

@@ -138,6 +138,9 @@
   <data name="EmailIsExist" xml:space="preserve">
     <value>الايميل الذي ادخلته موجود بالفعل</value>
   </data>
+  <data name="EmailIsNotExist" xml:space="preserve">
+    <value>الايميل غير موجود</value>
+  </data>
   <data name="EmailValidation" xml:space="preserve">
     <value>أدخل بريد الكتروني صحيح</value>
   </data>
@@ -165,6 +168,9 @@
   <data name="Password" xml:space="preserve">
     <value>الباسورد</value>
   </data>
+  <data name="PasswordNotCorrect" xml:space="preserve">
+    <value>كلمة المرور غير صحيحة</value>
+  </data>
   <data name="PasswordNotEqualConfirmPassword" xml:space="preserve">
     <value>كلمة المرور لا تتطابق </value>
   </data>
@@ -190,6 +196,9 @@
     <value>اسم المستخدم</value>
   </data>
   <data name="UserNameIsExist" xml:space="preserve">
-    <value>اسم المستخد موجود بالفعل</value>
+    <value>اسم المستخدم موجود بالفعل</value>
+  </data>
+  <data name="UserNameIsNotExist" xml:space="preserve">
+    <value>اسم المستخدم غير موجود </value>
   </data>
 </root>
