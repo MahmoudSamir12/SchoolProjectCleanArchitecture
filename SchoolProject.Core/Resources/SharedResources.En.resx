@@ -138,6 +138,9 @@
   <data name="EmailIsExist" xml:space="preserve">
     <value>Email is Already Exist </value>
   </data>
+  <data name="EmailIsNotExist" xml:space="preserve">
+    <value>Email Is Not Exist</value>
+  </data>
   <data name="EmailValidation" xml:space="preserve">
     <value>A valid email address is required</value>
   </data>
@@ -165,6 +168,9 @@
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PasswordNotCorrect" xml:space="preserve">
+    <value>The Password You Entered Is Not Correct </value>
+  </data>
   <data name="PasswordNotEqualConfirmPassword" xml:space="preserve">
     <value>Passwords do not match.</value>
   </data>
@@ -191,5 +197,8 @@
   </data>
   <data name="UserNameIsExist" xml:space="preserve">
     <value>UserName Is Already Existed</value>
+  </data>
+  <data name="UserNameIsNotExist" xml:space="preserve">
+    <value>UserName Is Not Exist</value>
   </data>
 </root>

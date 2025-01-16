@@ -18,7 +18,7 @@ namespace SchoolProject.Core.Features.Authentication.Commands.Validations
         public void ApplyValidationRules()
         {
 
-            RuleFor(n => n.UserName)
+            RuleFor(n => n.Email)
                 .NotEmpty().WithMessage(_localizer[SharedResourcesKeys.NotEmpty])
                 .NotNull().WithMessage(_localizer[SharedResourcesKeys.Required]);
 
